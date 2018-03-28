@@ -1,11 +1,9 @@
 import * as React from 'react';
 
 interface TodoItemProps {
-  content: string;
+  todo: string;
 }
 
-export const TodoItem: React.StatelessComponent<TodoItemProps> = ({
-  content
-}) => {
-  return <li>{content}</li>;
+export const TodoItem: React.StatelessComponent<TodoItemProps> = ({ todo }) => {
+  return <li>{todo}</li>;
 };

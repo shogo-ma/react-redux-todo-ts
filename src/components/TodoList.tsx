@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { TodoItem } from './TodoItem';
+import todoStore from '../stores/todo';
 
 interface TodoListProps {
-  todos: { id: number; content: string }[];
+  store: todoStore;
 }
 
 const listStyle = {
@@ -10,12 +11,13 @@ const listStyle = {
 };
 
 export const TodoList: React.StatelessComponent<TodoListProps> = ({
-  todos
+  store
 }) => {
+  const { todos } = store!.getState();
   return (
     <div>
       <ul style={listStyle}>
-        {todos.map(todo => <TodoItem key={todo.id} content={todo.content} />)}
+        {todos.map((todo, i) => <TodoItem key={i} todo={todo} />)}
       </ul>
     </div>
   );
